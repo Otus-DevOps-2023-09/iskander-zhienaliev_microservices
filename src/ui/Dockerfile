@@ -1,10 +1,8 @@
-FROM ubuntu:22.04
-RUN apt-get update
-RUN apt-cache policy ruby3.0
+FROM ubuntu:16.04
 RUN apt-get update \
-    && apt-get install -y ruby-full ruby-dev build-essential
-RUN apt-get install rubygems-integration
-RUN gem install bundler
+    && apt-get install -y ruby-full ruby-dev build-essential \
+    && gem install bundler -v 2.3.26 --no-ri --no-rdoc
+
 ENV APP_HOME /app
 RUN mkdir $APP_HOME
 
